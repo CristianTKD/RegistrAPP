@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
@@ -13,9 +12,12 @@ import {MatInputModule} from '@angular/material/input';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule,
-    MatInputModule
+    HomePageRoutingModule
   ],
   declarations: [HomePage]
 })
 export class HomePageModule {}
+
+
+
+
