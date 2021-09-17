@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import * as moment from 'moment';
 
@@ -8,7 +9,7 @@ import * as moment from 'moment';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
-
+  dato: any; 
   fecha: string;
 
   entradas: Array<{
@@ -23,7 +24,15 @@ export class InicioPage implements OnInit {
     texto: string
   };
 
-  constructor(public toastController: ToastController) {
+  constructor(public toastController: ToastController,public router: Router,
+    public activeroute: ActivatedRoute) {
+
+      this.activeroute.queryParams.subscribe(params =>{
+        if (this.router.getCurrentNavigation().extras.state) {
+          this.dato = this.router.getCurrentNavigation().extras.state.dato;
+        }
+      });
+      
     moment.locale('es-mx');
     this.fecha = moment().format();
     this.cargarEntradas();
@@ -87,7 +96,7 @@ export class InicioPage implements OnInit {
     }
 
     const toast = await this.toastController.create({
-      message: 'Datos guardados',
+      message: 'Datos Guardados',
       duration: 2000
     });
     toast.present();

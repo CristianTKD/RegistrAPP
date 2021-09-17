@@ -8,5 +8,13 @@
 </ion-header>
 
 <ion-content>
+  <ion-item color="secondary">
+    <ion-label>
+      Bienvenido a Registro APP {{dato}}
+    </ion-label>
+  </ion-item>
+    <img src="../../assets/codigo_asistencia.png" class="logo" />
   <app-card-entrada [entrada]="entradaActual" (eventoGuardar)="guardar($event)"></app-card-entrada>
+
 </ion-content>
+
